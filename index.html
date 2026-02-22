@@ -17,14 +17,13 @@
   --shadow:0 2px 14px rgba(0,0,0,0.08);
 }
 
-html,body{font-family:'DM Sans',sans-serif;background:#c7cfe0;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+html,body{font-family:'DM Sans',sans-serif;background:#c7cfe0;display:flex;justify-content:center;align-items:center;min-height:100vh;min-height:100dvh;}
 
-.phone{width:100%;max-width:430px;height:100dvh;max-height:932px;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 80px rgba(0,0,0,0.35);}
+.phone{width:100vw;max-width:430px;height:100dvh;max-height:932px;background:var(--bg);position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 80px rgba(0,0,0,0.35);}
 
-/* PAGES */
-.page{display:none;flex-direction:column;height:100%;overflow:hidden;}
-.page.active{display:flex;}
-.scroll-area{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:84px;}
+.page{display:none;flex-direction:column;height:100%;overflow:hidden;width:100%;}
+.page.active{display:flex;width:100%;}
+.scroll-area{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:84px;width:100%;}
 .scroll-area::-webkit-scrollbar{display:none;}
 
 /* ===== HOME ===== */
@@ -38,7 +37,6 @@ html,body{font-family:'DM Sans',sans-serif;background:#c7cfe0;display:flex;justi
 .header-icons button{background:rgba(255,255,255,0.15);border:none;cursor:pointer;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
 .header-icons button:active{background:rgba(255,255,255,0.25);}
 
-/* LIMIT BAR */
 .limit-bar-wrap{background:rgba(255,255,255,0.1);border-radius:12px;padding:10px 14px;margin-bottom:14px;}
 .limit-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
 .limit-label{color:rgba(255,255,255,0.8);font-size:11px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;}
@@ -54,7 +52,6 @@ html,body{font-family:'DM Sans',sans-serif;background:#c7cfe0;display:flex;justi
 .stat-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
 .stat-sub{font-size:11px;opacity:0.75;}
 .stat-sub-val{font-size:13px;font-weight:700;color:#fff;}
-.stat-sub-val.danger{color:#fca5a5;}
 .go-btn{width:28px;height:28px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
 .home-body{background:var(--bg);border-radius:24px 24px 0 0;margin-top:-20px;flex:1;overflow-y:auto;padding:22px 14px 0;}
@@ -75,18 +72,18 @@ canvas{width:100%!important;display:block;}
 
 /* ===== PAGE HEADER ===== */
 .page-header{background:var(--white);padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;border-bottom:1px solid #f0f2f7;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
-.page-header-icon{font-size:20px;}
 .page-header-title{font-size:17px;font-weight:700;color:var(--text);flex:1;}
 .page-header-actions{display:flex;align-items:center;gap:10px;}
 .ph-btn{background:none;border:none;cursor:pointer;padding:5px;display:flex;border-radius:8px;transition:background 0.1s;}
 .ph-btn:active{background:var(--bg);}
+.ph-btn-text{background:none;border:none;cursor:pointer;font-size:14px;font-weight:700;color:var(--red);font-family:inherit;padding:4px 8px;border-radius:8px;}
+.ph-btn-text:active{background:#fee2e2;}
 
 .search-bar{padding:10px 14px;background:var(--white);border-bottom:1px solid #f0f2f7;flex-shrink:0;}
 .search-input{width:100%;padding:9px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;font-family:inherit;outline:none;background:var(--bg);transition:border-color 0.2s;}
 .search-input:focus{border-color:var(--blue);}
 
 /* ===== LIST ITEMS ===== */
-.list-container{padding:4px 0;}
 .list-item{background:var(--white);border-bottom:1px solid #f3f4f6;padding:14px 14px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background 0.1s;}
 .list-item:first-child{border-top:1px solid #f3f4f6;}
 .list-item:active{background:#f9fafb;}
@@ -96,20 +93,28 @@ canvas{width:100%!important;display:block;}
 .item-check.checked{background:var(--blue);border-color:var(--blue);}
 .item-check.checked::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff;}
 
+.device-action-btn{width:22px;height:22px;border-radius:50%;border:2px solid #c7d2fe;flex-shrink:0;transition:all 0.15s;display:flex;align-items:center;justify-content:center;cursor:pointer;background:none;position:relative;}
+.device-action-btn:active{background:var(--blue-l);}
+
 .item-body{flex:1;min-width:0;}
 .item-key{font-size:13.5px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .item-key.red-key{color:var(--red);}
 .item-meta{font-size:12px;color:var(--gray);margin-top:2px;}
-.item-meta.online{color:var(--green);font-weight:600;}
-.item-meta.offline{color:var(--red);font-weight:500;}
 
 .badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;flex-shrink:0;letter-spacing:0.02em;}
 .badge.active{background:#dcfce7;color:#15803d;}
 .badge.pending{background:#fef3c7;color:#92400e;}
 .badge.expired{background:#fee2e2;color:#991b1b;}
 .badge.used{background:#e0f2fe;color:#075985;}
+.badge.current{background:#dbeafe;color:#1d4ed8;}
 
-/* COPY BTN */
+.device-item{background:var(--white);border-bottom:1px solid #f3f4f6;}
+.device-item-header{padding:14px 14px;display:flex;align-items:center;gap:12px;}
+.device-keys-sub{background:#f8f9ff;border-top:1px solid #f0f2f7;padding:10px 14px 10px 48px;}
+.device-key-sub-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid #eef0f5;}
+.device-key-sub-row:last-child{border-bottom:none;}
+.device-key-sub-text{font-size:11.5px;font-family:monospace;color:var(--text);font-weight:600;flex:1;word-break:break-all;}
+
 .copy-btn{background:var(--blue-l);border:none;cursor:pointer;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s;}
 .copy-btn:active{background:#c7d2fe;}
 
@@ -126,35 +131,41 @@ canvas{width:100%!important;display:block;}
 .toggle-knob{width:26px;height:26px;border-radius:50%;background:#fff;position:absolute;top:2px;left:22px;box-shadow:0 1px 4px rgba(0,0,0,0.2);transition:left 0.2s;}
 .toggle.off .toggle-knob{left:2px;}
 
-.pkg-actions{display:flex;gap:8px;padding:10px 14px;background:var(--bg);}
-.pkg-action-btn{flex:1;padding:10px;border:1.5px solid #e5e7eb;border-radius:10px;background:var(--white);font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;color:var(--text);transition:all 0.15s;}
-.pkg-action-btn.primary{background:var(--blue);color:#fff;border-color:var(--blue);}
-.pkg-action-btn:active{transform:scale(0.97);}
+/* ===== PROFILE (NEW) ===== */
+.profile-top-bar{background:var(--white);padding:16px 18px;display:flex;align-items:center;gap:14px;flex-shrink:0;border-bottom:1px solid #f0f2f7;}
+.profile-top-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#0d0d0d,#2a2a2a);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#f59e0b;font-style:italic;flex-shrink:0;}
+.profile-top-info{flex:1;}
+.profile-top-name{font-size:16px;font-weight:700;color:var(--text);}
+.profile-top-balance{font-size:13px;color:var(--blue);font-weight:600;margin-top:2px;}
+.profile-logout-btn{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;color:var(--blue);font-size:14px;font-weight:600;font-family:inherit;padding:6px 10px;border-radius:10px;transition:background 0.1s;}
+.profile-logout-btn:active{background:var(--blue-l);}
 
-/* ===== PROFILE ===== */
-.profile-header{background:linear-gradient(145deg,#1a56e8,#1240c0);padding:36px 20px 28px;text-align:center;flex-shrink:0;}
-.profile-avatar{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#0d0d0d,#2a2a2a);display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800;color:#f59e0b;font-style:italic;margin:0 auto 12px;border:3px solid rgba(255,255,255,0.2);}
-.profile-name{color:#fff;font-size:19px;font-weight:700;}
-.profile-plan{color:rgba(255,255,255,0.65);font-size:13px;margin-top:4px;}
-
-.profile-body{flex:1;overflow-y:auto;padding:18px 14px 90px;}
+.profile-body{flex:1;overflow-y:auto;padding:14px 14px 90px;}
 .profile-body::-webkit-scrollbar{display:none;}
 
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
-.mini-stat{background:var(--white);border-radius:14px;padding:14px 10px;text-align:center;box-shadow:var(--shadow);}
-.mini-stat-num{font-size:20px;font-weight:800;color:var(--blue);}
-.mini-stat-label{font-size:10px;color:var(--gray);margin-top:3px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
-
-.profile-section{margin-bottom:18px;}
-.profile-section-title{font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;padding-left:4px;}
-.profile-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
-.profile-row{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background 0.1s;}
+.profile-group{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:14px;}
+.profile-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background 0.1s;}
 .profile-row:last-child{border-bottom:none;}
 .profile-row:active{background:var(--bg);}
-.profile-row-left{display:flex;align-items:center;gap:11px;}
-.pr-icon{width:32px;height:32px;border-radius:9px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.pr-label{font-size:14px;font-weight:500;color:var(--text);}
-.pr-val{font-size:12px;color:var(--gray);}
+.profile-row-left{display:flex;align-items:center;gap:12px;}
+.pr-icon-wrap{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pr-icon-wrap.blue{background:#1a56e8;}
+.pr-icon-wrap.red{background:#ef4444;}
+.pr-icon-wrap.green{background:#22c55e;}
+.pr-icon-wrap.orange{background:#f59e0b;}
+.pr-icon-wrap.purple{background:#8b5cf6;}
+.pr-label{font-size:15px;font-weight:500;color:var(--text);}
+.pr-val{font-size:13px;color:var(--gray);}
+.pr-chevron{color:#9ca3af;}
+
+.profile-version{text-align:center;font-size:12px;font-weight:700;color:var(--gray);padding:10px 0 20px;}
+
+/* ===== LOGIN SESSION PAGE ===== */
+.session-card{background:var(--white);border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:var(--shadow);}
+.session-row{display:flex;justify-content:space-between;margin-bottom:4px;}
+.session-label{font-size:12px;font-weight:700;color:var(--text);}
+.session-value{font-size:12px;color:var(--gray);text-align:right;flex:1;margin-left:8px;word-break:break-all;}
+.session-current{font-size:11px;font-weight:700;color:var(--blue);}
 
 /* ===== MODALS ===== */
 .modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:100;display:none;align-items:flex-end;}
@@ -162,7 +173,6 @@ canvas{width:100%!important;display:block;}
 .modal{background:var(--white);border-radius:24px 24px 0 0;padding:20px 18px;width:100%;animation:slideUp 0.28s cubic-bezier(.32,.72,0,1);max-height:88%;overflow-y:auto;}
 .modal::-webkit-scrollbar{display:none;}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-
 .modal-handle{width:36px;height:4px;background:#e5e7eb;border-radius:99px;margin:0 auto 16px;}
 .modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
 .modal-title{font-size:17px;font-weight:700;color:var(--text);}
@@ -172,12 +182,11 @@ canvas{width:100%!important;display:block;}
 .form-group{margin-bottom:15px;}
 .form-label{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;display:block;}
 .req{color:var(--red);}
-.form-input,.form-select{width:100%;padding:11px 14px;border:1.5px solid #e5e7eb;border-radius:11px;font-size:15px;font-family:inherit;outline:none;background:var(--white);transition:border-color 0.2s;color:var(--text);}
-.form-input:focus,.form-select:focus{border-color:var(--blue);}
+.form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;border:1.5px solid #e5e7eb;border-radius:11px;font-size:15px;font-family:inherit;outline:none;background:var(--white);transition:border-color 0.2s;color:var(--text);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--blue);}
 .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6,9 12,15 18,9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;}
+.form-textarea{resize:none;min-height:100px;line-height:1.5;}
 .form-hint{font-size:11px;color:var(--blue);margin-top:5px;font-weight:600;}
-.form-hint.warn{color:var(--orange);}
-.form-hint.err{color:var(--red);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
 .preview-box{background:var(--bg);border-radius:11px;padding:12px 14px;font-size:12.5px;font-family:monospace;color:var(--text);word-break:break-all;border:1.5px dashed #c7d2fe;margin-bottom:15px;}
@@ -191,9 +200,35 @@ canvas{width:100%!important;display:block;}
 .create-btn:active{transform:scale(0.97);opacity:0.9;}
 .create-btn:disabled{opacity:0.5;cursor:not-allowed;}
 
-/* Package form modal */
-.pkg-form-input{width:100%;padding:11px 14px;border:1.5px solid #e5e7eb;border-radius:11px;font-size:14px;font-family:inherit;outline:none;margin-bottom:10px;transition:border-color 0.2s;}
-.pkg-form-input:focus{border-color:var(--blue);}
+/* Language option */
+.lang-option{display:flex;align-items:center;gap:12px;padding:13px 4px;border-bottom:1px solid #f3f4f6;cursor:pointer;border-radius:10px;transition:background 0.1s;}
+.lang-option:last-child{border-bottom:none;}
+.lang-option:active{background:var(--bg);}
+.lang-flag{font-size:24px;}
+.lang-name{flex:1;font-size:15px;font-weight:500;color:var(--text);}
+.lang-check{width:20px;height:20px;border-radius:50%;border:2px solid #c7d2fe;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.15s;}
+.lang-check.selected{background:var(--blue);border-color:var(--blue);}
+.lang-check.selected::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff;}
+
+/* Device Action Modal */
+.device-action-list{margin-top:4px;}
+.device-action-item{display:flex;align-items:center;gap:14px;padding:14px 4px;border-bottom:1px solid #f3f4f6;cursor:pointer;border-radius:10px;transition:background 0.1s;}
+.device-action-item:last-child{border-bottom:none;}
+.device-action-item:active{background:var(--bg);}
+.dai-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dai-icon.reset{background:#e0f2fe;}
+.dai-icon.revoke{background:#fee2e2;}
+.dai-label{font-size:14px;font-weight:600;color:var(--text);}
+.dai-sub{font-size:11px;color:var(--gray);margin-top:2px;}
+.device-action-info{background:var(--bg);border-radius:10px;padding:10px 12px;margin-bottom:14px;}
+.device-action-info-key{font-size:11px;font-family:monospace;font-weight:700;color:var(--text);word-break:break-all;}
+.device-action-info-dev{font-size:11px;color:var(--gray);margin-top:3px;}
+
+/* Support form */
+.support-hero{background:linear-gradient(135deg,var(--blue),var(--blue-d));border-radius:14px;padding:18px;margin-bottom:18px;text-align:center;}
+.support-hero-icon{font-size:32px;margin-bottom:8px;}
+.support-hero-title{font-size:16px;font-weight:700;color:#fff;}
+.support-hero-sub{font-size:12px;color:rgba(255,255,255,0.75);margin-top:4px;}
 
 /* ===== BOTTOM NAV ===== */
 .bottom-nav{position:absolute;bottom:0;left:0;right:0;height:72px;background:var(--white);border-top:1px solid #e9ecf3;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;padding:0 4px;z-index:50;box-shadow:0 -4px 24px rgba(0,0,0,0.07);}
@@ -202,7 +237,6 @@ canvas{width:100%!important;display:block;}
 .nav-item.active .nav-label{color:var(--blue);}
 .nav-item svg{transition:all 0.15s;color:var(--gray);}
 .nav-item.active svg{color:var(--blue);}
-.nav-badge{position:absolute;top:4px;right:8px;background:var(--red);color:#fff;border-radius:99px;padding:1px 5px;font-size:9px;font-weight:700;}
 
 /* ===== MISC ===== */
 .loading{text-align:center;padding:48px 20px;color:var(--gray);}
@@ -214,16 +248,12 @@ canvas{width:100%!important;display:block;}
 .toast{position:absolute;top:72px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 20px;border-radius:12px;font-size:13px;font-weight:600;z-index:300;white-space:nowrap;animation:toastAnim 3.2s ease forwards;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,0.25);}
 @keyframes toastAnim{0%{opacity:0;transform:translateX(-50%) translateY(-8px)}12%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0}}
 
-/* Generated keys results */
 .result-key-item{background:var(--bg);border-radius:10px;padding:10px 12px;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .result-key-text{font-size:12px;font-family:monospace;color:var(--text);font-weight:600;flex:1;word-break:break-all;}
 .result-copy-btn{background:var(--blue);border:none;cursor:pointer;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
-/* Divider */
-.divider{height:1px;background:#f0f2f7;margin:4px 0;}
 .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .section-btn{background:none;border:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--blue);font-family:inherit;}
-
 .limit-pill{background:var(--blue-l);border-radius:99px;padding:3px 10px;font-size:11px;font-weight:700;color:var(--blue);}
 
 @media(max-width:430px){.phone{max-height:100dvh;border-radius:0;}html,body{background:var(--bg);}}
@@ -252,16 +282,13 @@ canvas{width:100%!important;display:block;}
         </button>
       </div>
     </div>
-
-    <!-- LIMIT BAR -->
-    <div class="limit-bar-wrap" style="margin-bottom:14px;">
+    <div class="limit-bar-wrap">
       <div class="limit-row">
-        <span class="limit-label">Keys Geradas</span>
+        <span class="limit-label" data-i18n="keys_generated">Keys Geradas</span>
         <span class="limit-count" id="limit-count-text">0 / 5.000</span>
       </div>
       <div class="limit-bar-bg"><div class="limit-bar-fill" id="limit-bar" style="width:0%"></div></div>
     </div>
-
     <div class="stats-cards">
       <div class="stat-card" onclick="navigate('keys')">
         <div class="stat-label">
@@ -270,7 +297,7 @@ canvas{width:100%!important;display:block;}
         </div>
         <div class="stat-num" id="stat-total">–</div>
         <div class="stat-footer">
-          <div><div class="stat-sub">Pendentes</div><div class="stat-sub-val" id="stat-pending">–</div></div>
+          <div><div class="stat-sub" data-i18n="pending">Pendentes</div><div class="stat-sub-val" id="stat-pending">–</div></div>
           <div class="go-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
       </div>
@@ -281,18 +308,17 @@ canvas{width:100%!important;display:block;}
         </div>
         <div class="stat-num" id="stat-devices">–</div>
         <div class="stat-footer">
-          <div><div class="stat-sub">Ativas</div><div class="stat-sub-val" id="stat-active">–</div></div>
+          <div><div class="stat-sub" data-i18n="active">Ativas</div><div class="stat-sub-val" id="stat-active">–</div></div>
           <div class="go-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="home-body">
     <div class="quick-actions">
       <div class="qa-btn" onclick="openCreateModal()">
         <div class="qa-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3"/></svg></div>
-        <span class="qa-label">Criar Key</span>
+        <span class="qa-label" data-i18n="create_key">Criar Key</span>
       </div>
       <div class="qa-btn" onclick="navigate('packages')">
         <div class="qa-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
@@ -300,28 +326,26 @@ canvas{width:100%!important;display:block;}
       </div>
       <div class="qa-btn" onclick="copyAllPending()">
         <div class="qa-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div>
-        <span class="qa-label">Copiar All</span>
+        <span class="qa-label" data-i18n="copy_all">Copiar All</span>
       </div>
       <div class="qa-btn" onclick="navigate('profile')">
         <div class="qa-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-        <span class="qa-label">Perfil</span>
+        <span class="qa-label" data-i18n="profile">Perfil</span>
       </div>
     </div>
-
     <div class="section-header">
-      <span class="section-title">Ativações Recentes</span>
+      <span class="section-title" data-i18n="recent_activations">Ativações Recentes</span>
     </div>
     <div class="chart-card">
       <div class="chart-legend">
         <div class="chart-dot"></div>
-        <span class="chart-legend-label">Keys geradas por dia</span>
+        <span class="chart-legend-label" data-i18n="keys_per_day">Keys geradas por dia</span>
       </div>
       <canvas id="mainChart" height="170"></canvas>
     </div>
-
     <div class="section-header">
-      <span class="section-title">Últimas Keys</span>
-      <button class="section-btn" onclick="navigate('keys')">Ver todas →</button>
+      <span class="section-title" data-i18n="latest_keys">Últimas Keys</span>
+      <button class="section-btn" onclick="navigate('keys')" data-i18n="see_all">Ver todas →</button>
     </div>
     <div id="home-keys-list" style="margin-bottom:20px;"></div>
   </div>
@@ -333,7 +357,7 @@ canvas{width:100%!important;display:block;}
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3"/></svg>
     <span class="page-header-title">Keys <span class="limit-pill" id="keys-count-pill">0</span></span>
     <div class="page-header-actions">
-      <button class="ph-btn" onclick="deleteSelected()" title="Deletar selecionadas">
+      <button class="ph-btn" onclick="deleteSelected()">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
       </button>
       <button class="ph-btn" onclick="toggleSearch('keys')">
@@ -398,91 +422,165 @@ canvas{width:100%!important;display:block;}
 
 <!-- ========== PROFILE ========== -->
 <div class="page" id="page-profile">
-  <div class="profile-header">
-    <div class="profile-avatar">F</div>
-    <div class="profile-name">GHOST CHEATS</div>
-    <div class="profile-plan">✦ Plano Pro • Ativo</div>
+  <!-- Top bar with name, balance, logout -->
+  <div class="profile-top-bar">
+    <div class="profile-top-avatar">G</div>
+    <div class="profile-top-info">
+      <div class="profile-top-name">GHOST DASH</div>
+      <div class="profile-top-balance">0.00 AC</div>
+    </div>
+    <button class="profile-logout-btn" onclick="confirmLogout()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      <span data-i18n="logout">Logout</span>
+    </button>
   </div>
+
   <div class="profile-body">
-    <div class="stats-row">
-      <div class="mini-stat">
-        <div class="mini-stat-num" id="prof-total">–</div>
-        <div class="mini-stat-label">Total Keys</div>
-      </div>
-      <div class="mini-stat">
-        <div class="mini-stat-num" id="prof-used">–</div>
-        <div class="mini-stat-label">Ativas</div>
-      </div>
-      <div class="mini-stat">
-        <div class="mini-stat-num" id="prof-pkgs">–</div>
-        <div class="mini-stat-label">Packages</div>
-      </div>
-    </div>
-
-    <div class="profile-section">
-      <div class="profile-section-title">Conta</div>
-      <div class="profile-card">
-        <div class="profile-row">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-            <span class="pr-label">Username</span>
+    <!-- Section 1: Notifications & Group -->
+    <div class="profile-group">
+      <div class="profile-row" onclick="showToast('🔔 Notifications — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           </div>
-          <span class="pr-val">ferrao_ios</span>
+          <span class="pr-label" data-i18n="notifications">Notifications</span>
         </div>
-        <div class="profile-row">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-            <span class="pr-label">Plano</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="showToast('👥 Group — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <span class="pr-val" style="color:#1a56e8;font-weight:700;">Pro</span>
+          <span class="pr-label" data-i18n="group">Group</span>
         </div>
-        <div class="profile-row">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3"/></svg></div>
-            <span class="pr-label">Limite Keys</span>
-          </div>
-          <span class="pr-val" id="prof-limit">0 / 5.000</span>
-        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
       </div>
     </div>
 
-    <div class="profile-section">
-      <div class="profile-section-title">API Integração</div>
-      <div class="profile-card">
-        <div class="profile-row" onclick="copyText('https://teste-api-mcok.vercel.app/keys')">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-            <span class="pr-label">API Base URL</span>
+    <!-- Section 2: Profile info, Password, Key alias -->
+    <div class="profile-group">
+      <div class="profile-row" onclick="showToast('👤 Change profile info — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </div>
-          <span class="pr-val" style="font-size:10px;max-width:140px;text-align:right;word-break:break-all;">teste-api-mcok.vercel.app</span>
+          <span class="pr-label" data-i18n="change_profile">Change profile info</span>
         </div>
-        <div class="profile-row" onclick="refreshAll()">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg></div>
-            <span class="pr-label">Atualizar dados</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="showToast('🔒 Change password — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          <span class="pr-label" data-i18n="change_password">Change password</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="showToast('🗝️ Key alias — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap green">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="key_alias">Key alias</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+
+    <!-- Section 3: Login session, 2FA -->
+    <div class="profile-group">
+      <div class="profile-row" onclick="navigate('login-session')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="login_session">Login session</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="showToast('🔐 2FA setting — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="twofa">2FA setting</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+
+    <!-- Section 4: Privacy, Support, Language -->
+    <div class="profile-group">
+      <div class="profile-row" onclick="showToast('🛡️ Privacy and policy — Em breve')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="privacy">Privacy and policy</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="openModal('support-modal')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.44 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="support">Support</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="openModal('lang-modal')">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap blue">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="language">Language</span>
+        </div>
+        <span class="pr-val" id="current-lang-label">English</span>
+      </div>
+    </div>
+
+    <!-- Integration / Dev section -->
+    <div class="profile-group">
+      <div class="profile-row" onclick="showIntegration()">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap purple">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="pr-label" data-i18n="integration_code">Código de Integração</span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" class="pr-chevron"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+      <div class="profile-row" onclick="resetAllKeys()">
+        <div class="profile-row-left">
+          <div class="pr-icon-wrap red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+          </div>
+          <span class="pr-label" style="color:#ef4444;" data-i18n="clear_keys">Limpar todas as keys</span>
         </div>
       </div>
     </div>
 
-    <div class="profile-section">
-      <div class="profile-section-title">Integração Externa</div>
-      <div class="profile-card">
-        <div class="profile-row" onclick="showIntegration()">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <span class="pr-label">Código de Integração</span>
-          </div>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="profile-row" onclick="resetAllKeys()">
-          <div class="profile-row-left">
-            <div class="pr-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></div>
-            <span class="pr-label" style="color:#ef4444;">Limpar todas as keys</span>
-          </div>
-        </div>
-      </div>
+    <div class="profile-version" data-i18n="version">Version: 1.0.0 (Prod)</div>
+  </div>
+</div>
+
+<!-- ========== LOGIN SESSION PAGE ========== -->
+<div class="page" id="page-login-session">
+  <div class="page-header">
+    <button class="ph-btn" onclick="navigate('profile')">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="page-header-title" data-i18n="login_session">Login session</span>
+    <div class="page-header-actions">
+      <button class="ph-btn-text" onclick="clearSessions()" data-i18n="clear">Clear</button>
+    </div>
+  </div>
+  <div class="scroll-area" style="padding:14px 14px 84px;">
+    <div id="sessions-list">
+      <div class="loading"><div class="spinner"></div>Carregando sessões...</div>
     </div>
   </div>
 </div>
@@ -497,13 +595,11 @@ canvas{width:100%!important;display:block;}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-
     <div class="form-group">
       <label class="form-label">Quantidade <span class="req">*</span></label>
       <input class="form-input" type="number" id="key-qty" value="1" min="1" max="100" oninput="updatePreview()"/>
       <div class="form-hint" id="remaining-hint">Disponível: calculando...</div>
     </div>
-
     <div class="form-group">
       <label class="form-label">Duração <span class="req">*</span></label>
       <div class="form-row">
@@ -517,7 +613,6 @@ canvas{width:100%!important;display:block;}
         </select>
       </div>
     </div>
-
     <div class="form-group">
       <label class="form-label">Package / Destino API <span class="req">*</span></label>
       <select class="form-select" id="key-package" onchange="updatePreview()">
@@ -525,7 +620,6 @@ canvas{width:100%!important;display:block;}
       </select>
       <div class="form-hint" id="pkg-url-hint" style="margin-top:5px;word-break:break-all;"></div>
     </div>
-
     <div class="toggle-row">
       <div class="toggle-row-txt">
         <div class="tl">Auto clean key</div>
@@ -533,10 +627,8 @@ canvas{width:100%!important;display:block;}
       </div>
       <div class="toggle off" id="auto-clean-tog" onclick="this.classList.toggle('off')"><div class="toggle-knob"></div></div>
     </div>
-
     <div class="preview-label">Preview da key</div>
     <div class="preview-box" id="key-preview">GHOST-weekly-xxxxxxxxxxxxxxxxxx</div>
-
     <div id="generated-results" style="display:none">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
         <span style="font-size:13px;font-weight:700;color:var(--text);">✅ Keys Geradas</span>
@@ -544,10 +636,7 @@ canvas{width:100%!important;display:block;}
       </div>
       <div id="generated-keys-list"></div>
     </div>
-
-    <button class="create-btn" id="create-btn-main" onclick="createKeys()">
-      ✦ Gerar Keys
-    </button>
+    <button class="create-btn" id="create-btn-main" onclick="createKeys()">✦ Gerar Keys</button>
   </div>
 </div>
 
@@ -596,78 +685,280 @@ canvas{width:100%!important;display:block;}
   </div>
 </div>
 
+<!-- ========== MODAL: DEVICE ACTION ========== -->
+<div class="modal-overlay" id="device-action-modal" onclick="closeOnBg(event,'device-action-modal')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-title">📱 Ações do Device</span>
+      <button class="modal-close-btn" onclick="closeModal('device-action-modal')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="device-action-info">
+      <div class="device-action-info-key" id="da-key-text">–</div>
+      <div class="device-action-info-dev" id="da-dev-text">–</div>
+    </div>
+    <div class="device-action-list">
+      <div class="device-action-item" onclick="doDeviceAction('reset')">
+        <div class="dai-icon reset">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/></svg>
+        </div>
+        <div>
+          <div class="dai-label">Resetar Device</div>
+          <div class="dai-sub">Remove o vínculo com o device, key fica disponível novamente</div>
+        </div>
+      </div>
+      <div class="device-action-item" onclick="doDeviceAction('revoke')">
+        <div class="dai-icon revoke">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        </div>
+        <div>
+          <div class="dai-label" style="color:#ef4444;">Revogar Device</div>
+          <div class="dai-sub">Exclui a key permanentemente da API e do sistema</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODAL: LANGUAGE ========== -->
+<div class="modal-overlay" id="lang-modal" onclick="closeOnBg(event,'lang-modal')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-title">🌐 Language</span>
+      <button class="modal-close-btn" onclick="closeModal('lang-modal')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div>
+      <div class="lang-option" onclick="setLanguage('en')">
+        <span class="lang-flag">🇬🇧</span>
+        <span class="lang-name">English</span>
+        <div class="lang-check" id="lang-check-en"></div>
+      </div>
+      <div class="lang-option" onclick="setLanguage('pt')">
+        <span class="lang-flag">🇵🇹</span>
+        <span class="lang-name">Português (PT)</span>
+        <div class="lang-check" id="lang-check-pt"></div>
+      </div>
+      <div class="lang-option" onclick="setLanguage('vi')">
+        <span class="lang-flag">🇻🇳</span>
+        <span class="lang-name">Tiếng Việt</span>
+        <div class="lang-check" id="lang-check-vi"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODAL: SUPPORT ========== -->
+<div class="modal-overlay" id="support-modal" onclick="closeOnBg(event,'support-modal')">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-title">🎧 Support</span>
+      <button class="modal-close-btn" onclick="closeModal('support-modal')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="support-hero">
+      <div class="support-hero-icon">🛟</div>
+      <div class="support-hero-title">Como podemos ajudar?</div>
+      <div class="support-hero-sub">Preencha o formulário e responderemos em breve via Discord</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Nome <span class="req">*</span></label>
+      <input class="form-input" id="support-name" placeholder="Seu nome ou usuário..."/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Problema <span class="req">*</span></label>
+      <select class="form-select" id="support-problem">
+        <option value="">— Selecione o tipo de problema —</option>
+        <option value="Key não funciona">🔑 Key não funciona</option>
+        <option value="Erro ao gerar key">⚠️ Erro ao gerar key</option>
+        <option value="Problema com device">📱 Problema com device</option>
+        <option value="Problema com package">📦 Problema com package</option>
+        <option value="Erro de login">🔐 Erro de login</option>
+        <option value="Pagamento / Plano">💳 Pagamento / Plano</option>
+        <option value="Bug no sistema">🐛 Bug no sistema</option>
+        <option value="Outro">❓ Outro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Descrição — explique o problema <span class="req">*</span></label>
+      <textarea class="form-textarea" id="support-desc" placeholder="Descreva o problema com o máximo de detalhes possível. Inclua erros, prints, e o que estava fazendo quando ocorreu..." rows="5"></textarea>
+    </div>
+
+    <button class="create-btn" id="support-send-btn" onclick="sendSupportTicket()">
+      📨 Enviar para o Suporte
+    </button>
+  </div>
+</div>
+
 <!-- ========== BOTTOM NAV ========== -->
 <nav class="bottom-nav">
   <div class="nav-item active" onclick="navigate('home')" id="nav-home">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5" opacity="0.85"/><rect x="14" y="3" width="7" height="7" rx="1.5" opacity="0.85"/><rect x="3" y="14" width="7" height="7" rx="1.5" opacity="0.85"/><rect x="14" y="14" width="7" height="7" rx="1.5" opacity="0.85"/></svg>
-    <span class="nav-label">Home</span>
+    <span class="nav-label" data-i18n="nav_home">Home</span>
   </div>
   <div class="nav-item" onclick="navigate('keys')" id="nav-keys">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3"/></svg>
-    <span class="nav-label">Keys</span>
+    <span class="nav-label" data-i18n="nav_keys">Keys</span>
   </div>
   <div class="nav-item" onclick="navigate('devices')" id="nav-devices">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-    <span class="nav-label">Devices</span>
+    <span class="nav-label" data-i18n="nav_devices">Devices</span>
   </div>
   <div class="nav-item" onclick="navigate('packages')" id="nav-packages">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-    <span class="nav-label">Packages</span>
+    <span class="nav-label" data-i18n="nav_packages">Packages</span>
   </div>
   <div class="nav-item" onclick="navigate('profile')" id="nav-profile">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <span class="nav-label">Profile</span>
+    <span class="nav-label" data-i18n="nav_profile">Profile</span>
   </div>
 </nav>
 </div><!-- .phone -->
 
 <script>
 /* ============================================================
-   STORAGE - Persistent via localStorage
+   DISCORD WEBHOOK — Substitua pelo seu webhook URL
+   ============================================================ */
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1446276085397590018/Uwj0sKu8SKD4ZqVtnkdz4nhfEd_DlKE_AdeEde3EX9NglfGPhuTz9pXLPSiROrBNmhXy';
+
+/* ============================================================
+   TRANSLATIONS
+   ============================================================ */
+const translations = {
+  en: {
+    keys_generated:'Keys Generated', pending:'Pending', active:'Active',
+    create_key:'Create Key', copy_all:'Copy All', profile:'Profile',
+    recent_activations:'Recent Activations', keys_per_day:'Keys generated per day',
+    latest_keys:'Latest Keys', see_all:'See all →',
+    logout:'Logout', notifications:'Notifications', group:'Group',
+    change_profile:'Change profile info', change_password:'Change password',
+    key_alias:'Key alias', login_session:'Login session', twofa:'2FA setting',
+    privacy:'Privacy and policy', support:'Support', language:'Language',
+    integration_code:'Integration Code', clear_keys:'Clear all keys',
+    version:'Version: 1.0.0 (Prod)', clear:'Clear',
+    nav_home:'Home', nav_keys:'Keys', nav_devices:'Devices',
+    nav_packages:'Packages', nav_profile:'Profile'
+  },
+  pt: {
+    keys_generated:'Keys Geradas', pending:'Pendentes', active:'Ativas',
+    create_key:'Criar Key', copy_all:'Copiar All', profile:'Perfil',
+    recent_activations:'Ativações Recentes', keys_per_day:'Keys geradas por dia',
+    latest_keys:'Últimas Keys', see_all:'Ver todas →',
+    logout:'Sair', notifications:'Notificações', group:'Grupo',
+    change_profile:'Alterar dados do perfil', change_password:'Alterar senha',
+    key_alias:'Alias da key', login_session:'Sessão de login', twofa:'Configuração 2FA',
+    privacy:'Privacidade e política', support:'Suporte', language:'Idioma',
+    integration_code:'Código de Integração', clear_keys:'Limpar todas as keys',
+    version:'Versão: 1.0.0 (Prod)', clear:'Limpar',
+    nav_home:'Home', nav_keys:'Keys', nav_devices:'Devices',
+    nav_packages:'Pacotes', nav_profile:'Perfil'
+  },
+  vi: {
+    keys_generated:'Keys Đã Tạo', pending:'Chờ xử lý', active:'Đang hoạt động',
+    create_key:'Tạo Key', copy_all:'Sao chép tất cả', profile:'Hồ sơ',
+    recent_activations:'Kích hoạt gần đây', keys_per_day:'Keys được tạo mỗi ngày',
+    latest_keys:'Keys gần nhất', see_all:'Xem tất cả →',
+    logout:'Đăng xuất', notifications:'Thông báo', group:'Nhóm',
+    change_profile:'Thay đổi thông tin', change_password:'Đổi mật khẩu',
+    key_alias:'Bí danh key', login_session:'Phiên đăng nhập', twofa:'Cài đặt 2FA',
+    privacy:'Quyền riêng tư', support:'Hỗ trợ', language:'Ngôn ngữ',
+    integration_code:'Mã tích hợp', clear_keys:'Xóa tất cả keys',
+    version:'Phiên bản: 1.0.0 (Sản xuất)', clear:'Xóa',
+    nav_home:'Trang chủ', nav_keys:'Keys', nav_devices:'Thiết bị',
+    nav_packages:'Gói', nav_profile:'Hồ sơ'
+  }
+};
+
+let currentLang = localStorage.getItem('ferrao_lang') || 'en';
+
+function applyLanguage(lang){
+  currentLang = lang;
+  localStorage.setItem('ferrao_lang', lang);
+  const t = translations[lang] || translations['en'];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(t[key]) el.textContent = t[key];
+  });
+  const labels = {en:'English', pt:'Português (PT)', vi:'Tiếng Việt'};
+  const el = document.getElementById('current-lang-label');
+  if(el) el.textContent = labels[lang] || 'English';
+  // Update lang checks
+  ['en','pt','vi'].forEach(l => {
+    const c = document.getElementById('lang-check-'+l);
+    if(c) c.className = 'lang-check' + (l===lang?' selected':'');
+  });
+}
+
+function setLanguage(lang){
+  applyLanguage(lang);
+  closeModal('lang-modal');
+  showToast('🌐 Language changed!');
+}
+
+/* ============================================================
+   STORAGE
    ============================================================ */
 const STORAGE_KEYS = {
-  keys: 'ferrao_keys',
-  packages: 'ferrao_packages',
-  limit: 'ferrao_limit',
-  chartData: 'ferrao_chart',
-  apiKeys: 'ferrao_api_keys'
+  keys: 'ferrao_keys', packages: 'ferrao_packages', limit: 'ferrao_limit',
+  chartData: 'ferrao_chart', apiKeys: 'ferrao_api_keys', deleted: 'ferrao_deleted'
 };
 const KEY_LIMIT = 5000;
 
 function save(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 function load(k, def=null){ try{ const v=localStorage.getItem(k); return v!==null?JSON.parse(v):def; }catch(e){ return def; } }
 
-// ---- State ----
-let generatedKeys = load(STORAGE_KEYS.keys, []);   // keys WE generated
-let apiKeys = load(STORAGE_KEYS.apiKeys, []);        // keys from remote API
+let generatedKeys = load(STORAGE_KEYS.keys, []);
+let apiKeys = load(STORAGE_KEYS.apiKeys, []);
 let packages = load(STORAGE_KEYS.packages, [
   { id:'default', name:'API', url:'https://teste-api-mcok.vercel.app/keys', desc:'API principal FERRAO', enabled:true, sent:0 }
 ]);
 let limitCount = load(STORAGE_KEYS.limit, 0);
-let chartData = load(STORAGE_KEYS.chartData, {});   // {YYYY-MM-DD: count}
+let chartData = load(STORAGE_KEYS.chartData, {});
 let selectedIds = new Set();
+let deletedIds = new Set(load(STORAGE_KEYS.deleted, []));
+let activeDeviceKey = null;
 
 /* ============================================================
    NAVIGATION
    ============================================================ */
+const mainPages = ['home','keys','devices','packages','profile'];
+
 function navigate(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  // Only update bottom nav for main pages
+  if(mainPages.includes(page)){
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    const navEl = document.getElementById('nav-'+page);
+    if(navEl) navEl.classList.add('active');
+  } else if(page === 'login-session'){
+    // Keep profile nav active when on login-session
+    document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+    document.getElementById('nav-profile').classList.add('active');
+    renderSessions();
+  }
   document.getElementById('page-'+page).classList.add('active');
-  document.getElementById('nav-'+page).classList.add('active');
   if(page==='keys') renderKeysList(getMergedKeys());
   if(page==='devices') renderDevicesList(getMergedKeys());
   if(page==='packages') renderPackages();
-  if(page==='profile') renderProfile();
+  if(page==='profile') { /* profile renders on open */ }
 }
 
 /* ============================================================
-   MERGE: local generated + remote api
+   MERGE
    ============================================================ */
 function getMergedKeys(){
-  const remoteIds = new Set(apiKeys.map(k=>k.id));
-  const localOnly = generatedKeys.filter(k=>!remoteIds.has(k.id));
-  return [...apiKeys, ...localOnly];
+  const filteredApi = apiKeys.filter(k => !deletedIds.has(k.id));
+  const apiIdSet = new Set(filteredApi.map(k=>k.id));
+  const localOnly = generatedKeys.filter(k => !apiIdSet.has(k.id) && !deletedIds.has(k.id));
+  return [...filteredApi, ...localOnly];
 }
 
 /* ============================================================
@@ -675,24 +966,170 @@ function getMergedKeys(){
    ============================================================ */
 async function fetchRemoteKeys(){
   try{
-    const res = await fetch('https://teste-api-mcok.vercel.app/keys', {
-      cache:'no-store',
-      headers:{'Accept':'application/json'}
-    });
+    const res = await fetch('https://teste-api-mcok.vercel.app/keys', {cache:'no-store',headers:{'Accept':'application/json'}});
     if(!res.ok) throw new Error('HTTP '+res.status);
     const data = await res.json();
     if(Array.isArray(data)){
-      apiKeys = data;
+      apiKeys = data.filter(k => !deletedIds.has(k.id));
       save(STORAGE_KEYS.apiKeys, apiKeys);
     }
   }catch(e){ console.warn('API fetch failed:', e.message); }
+}
+
+async function deleteKeyFromApi(keyId, keyStr){
+  try{
+    const res = await fetch(`https://teste-api-mcok.vercel.app/keys/${keyId}`,{method:'DELETE',headers:{'Content-Type':'application/json','Accept':'application/json'},signal:AbortSignal.timeout(6000)});
+    if(res.ok) return true;
+  }catch(e){}
+  try{
+    const res = await fetch('https://teste-api-mcok.vercel.app/keys',{method:'DELETE',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({id:keyId,key:keyStr}),signal:AbortSignal.timeout(6000)});
+    if(res.ok) return true;
+  }catch(e){}
+  return false;
+}
+
+/* ============================================================
+   LOGIN SESSION
+   ============================================================ */
+// Simulated sessions — in real use, fetch from your API
+const mockSessions = [
+  { device:'iPhone11,6', platform:'iOS', version:'18.6.2', ip:'191.40.102.154', current:true },
+  { device:'iPhone14,7', platform:'iOS', version:'26.2.1', ip:'2804:214:85c3:27b1:c554:b51a:e297:a01e', current:false },
+  { device:'iPhone13,4', platform:'iOS', version:'18.6.2', ip:'2804:14d:9e80:3de:41c1:7423:81c5:ab8b', current:false },
+  { device:'iPhone13,2', platform:'iOS', version:'26.1', ip:'2804:5c:4d83:ba00:19dc:1d13:b4b1:e50d', current:false },
+  { device:'malachite', platform:'Android', version:'14', ip:'2804:1288:1ff2:7270:8fe6:62aa:1dc0:7027', current:false },
+  { device:'iPhone14,5', platform:'iOS', version:'26.2.1', ip:'2804:15b4:101:1ecc:1df5:3116:ef5c:ccf5', current:false },
+];
+
+function renderSessions(){
+  const el = document.getElementById('sessions-list');
+  // Try fetching real sessions — for now show mockSessions as demo
+  if(!mockSessions.length){
+    el.innerHTML='<div class="empty"><div class="empty-icon">📱</div><div class="empty-text">Nenhuma sessão ativa</div></div>';
+    return;
+  }
+  el.innerHTML = mockSessions.map(s => `
+    <div class="session-card">
+      <div class="session-row">
+        <span class="session-label">Device name</span>
+        <div style="display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;">
+          <span class="session-value" style="flex:none">${s.device}</span>
+          ${s.current ? '<span class="session-current">Current session</span>' : ''}
+        </div>
+      </div>
+      <div class="session-row">
+        <span class="session-label">Device platform</span>
+        <span class="session-value">${s.platform}</span>
+      </div>
+      <div class="session-row">
+        <span class="session-label">Device version</span>
+        <span class="session-value">${s.version}</span>
+      </div>
+      <div class="session-row" style="margin-bottom:0;">
+        <span class="session-label">IP</span>
+        <span class="session-value" style="font-family:monospace;font-size:11px;">${s.ip}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function clearSessions(){
+  if(!confirm('Encerrar todas as outras sessões?')) return;
+  // Keep only current session in display
+  const filtered = mockSessions.filter(s => s.current);
+  const el = document.getElementById('sessions-list');
+  el.innerHTML = filtered.map(s => `
+    <div class="session-card">
+      <div class="session-row">
+        <span class="session-label">Device name</span>
+        <div style="display:flex;align-items:center;gap:6px;flex:1;justify-content:flex-end;">
+          <span class="session-value" style="flex:none">${s.device}</span>
+          <span class="session-current">Current session</span>
+        </div>
+      </div>
+      <div class="session-row"><span class="session-label">Device platform</span><span class="session-value">${s.platform}</span></div>
+      <div class="session-row"><span class="session-label">Device version</span><span class="session-value">${s.version}</span></div>
+      <div class="session-row" style="margin-bottom:0;"><span class="session-label">IP</span><span class="session-value" style="font-family:monospace;font-size:11px;">${s.ip}</span></div>
+    </div>
+  `).join('');
+  showToast('✅ Outras sessões encerradas!');
+}
+
+/* ============================================================
+   SUPPORT — Discord Webhook
+   ============================================================ */
+async function sendSupportTicket(){
+  const name = document.getElementById('support-name').value.trim();
+  const problem = document.getElementById('support-problem').value;
+  const desc = document.getElementById('support-desc').value.trim();
+
+  if(!name){ showToast('⚠️ Informe seu nome'); return; }
+  if(!problem){ showToast('⚠️ Selecione o tipo de problema'); return; }
+  if(!desc || desc.length < 10){ showToast('⚠️ Descreva o problema com mais detalhes'); return; }
+
+  const btn = document.getElementById('support-send-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Enviando...';
+
+  const now = new Date();
+  const timestamp = now.toISOString();
+
+  const embed = {
+    title: '🎫 Novo Ticket de Suporte',
+    color: 0x1a56e8,
+    fields: [
+      { name: '👤 Nome', value: name, inline: true },
+      { name: '🔴 Problema', value: problem, inline: true },
+      { name: '📝 Descrição', value: desc.length > 1024 ? desc.substring(0,1021)+'...' : desc, inline: false },
+      { name: '🕐 Data/Hora', value: now.toLocaleString('pt-BR'), inline: true },
+      { name: '📱 Plataforma', value: navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad') ? 'iOS' : navigator.userAgent.includes('Android') ? 'Android' : 'Web/Desktop', inline: true }
+    ],
+    footer: { text: 'Ghost Dash · Support System' },
+    timestamp: timestamp,
+    thumbnail: { url: 'https://cdn3.emoji.gg/emojis/2273-ghost-emoji.png' }
+  };
+
+  try{
+    const res = await fetch(DISCORD_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: '🛟 Ghost Support',
+        avatar_url: 'https://cdn3.emoji.gg/emojis/2273-ghost-emoji.png',
+        embeds: [embed]
+      }),
+      signal: AbortSignal.timeout(10000)
+    });
+
+    if(res.ok || res.status === 204){
+      showToast('✅ Ticket enviado! Aguarde resposta.');
+      closeModal('support-modal');
+      document.getElementById('support-name').value = '';
+      document.getElementById('support-problem').value = '';
+      document.getElementById('support-desc').value = '';
+    } else {
+      throw new Error('HTTP '+res.status);
+    }
+  }catch(e){
+    console.warn('Webhook error:', e);
+    showToast('⚠️ Configure o webhook no código (DISCORD_WEBHOOK)');
+  }
+
+  btn.disabled = false;
+  btn.textContent = '📨 Enviar para o Suporte';
+}
+
+function confirmLogout(){
+  if(confirm('Tem certeza que deseja sair?')){
+    showToast('👋 Até logo!');
+  }
 }
 
 /* ============================================================
    STATS & LIMIT
    ============================================================ */
 function updateLimit(added=0){
-  limitCount = Math.min(limitCount + added, KEY_LIMIT);
+  if(added > 0) limitCount = Math.min(limitCount + added, KEY_LIMIT);
   save(STORAGE_KEYS.limit, limitCount);
   const pct = (limitCount / KEY_LIMIT) * 100;
   document.getElementById('limit-count-text').textContent = `${limitCount.toLocaleString('pt-BR')} / 5.000`;
@@ -734,70 +1171,41 @@ function renderChart(){
   const dpr = window.devicePixelRatio || 1;
   const W = canvas.offsetWidth || 340;
   const H = 170;
-  canvas.width = W * dpr;
-  canvas.height = H * dpr;
-  ctx.scale(dpr, dpr);
-
+  canvas.width = W * dpr; canvas.height = H * dpr; ctx.scale(dpr, dpr);
   const raw = buildChartData();
   const labels = Object.keys(raw).map(d=>d.slice(5));
   const values = Object.values(raw);
   const maxV = Math.max(...values, 5);
-
   const pad = {l:36,r:14,t:14,b:30};
-  const W2 = W - pad.l - pad.r;
-  const H2 = H - pad.t - pad.b;
-
+  const W2 = W - pad.l - pad.r, H2 = H - pad.t - pad.b;
   ctx.clearRect(0,0,W,H);
-
-  // Grid lines
-  ctx.setLineDash([3,4]);
-  ctx.strokeStyle='#e9ecf3';
-  ctx.lineWidth=1;
+  ctx.setLineDash([3,4]); ctx.strokeStyle='#e9ecf3'; ctx.lineWidth=1;
   for(let i=0;i<=4;i++){
-    const y = pad.t + (H2/4)*i;
+    const y=pad.t+(H2/4)*i;
     ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(W-pad.r,y); ctx.stroke();
     ctx.fillStyle='#9ca3af'; ctx.font=`9px DM Sans`; ctx.textAlign='right';
-    ctx.fillText(Math.round(maxV-(maxV/4)*i), pad.l-4, y+4);
+    ctx.fillText(Math.round(maxV-(maxV/4)*i),pad.l-4,y+4);
   }
   ctx.setLineDash([]);
-
-  // Points
-  const pts = values.map((v,i)=>({
-    x: pad.l + (W2/(values.length-1||1))*i,
-    y: pad.t + H2 - (v/maxV)*H2
-  }));
-
-  // Area
+  const pts = values.map((v,i)=>({x:pad.l+(W2/(values.length-1||1))*i,y:pad.t+H2-(v/maxV)*H2}));
   const grad = ctx.createLinearGradient(0,pad.t,0,pad.t+H2);
-  grad.addColorStop(0,'rgba(26,86,232,0.18)');
-  grad.addColorStop(1,'rgba(26,86,232,0)');
-  ctx.beginPath();
-  ctx.moveTo(pts[0].x, pts[0].y);
-  pts.forEach((p,i)=>{ if(i>0) ctx.lineTo(p.x,p.y); });
-  ctx.lineTo(pts[pts.length-1].x, pad.t+H2);
-  ctx.lineTo(pts[0].x, pad.t+H2);
+  grad.addColorStop(0,'rgba(26,86,232,0.18)'); grad.addColorStop(1,'rgba(26,86,232,0)');
+  ctx.beginPath(); ctx.moveTo(pts[0].x,pts[0].y);
+  pts.forEach((p,i)=>{if(i>0) ctx.lineTo(p.x,p.y);});
+  ctx.lineTo(pts[pts.length-1].x,pad.t+H2); ctx.lineTo(pts[0].x,pad.t+H2);
   ctx.fillStyle=grad; ctx.fill();
-
-  // Line
   ctx.beginPath(); ctx.strokeStyle='#1a56e8'; ctx.lineWidth=2.5; ctx.lineJoin='round';
-  pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
-  ctx.stroke();
-
-  // Dots
+  pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y)); ctx.stroke();
   pts.forEach(p=>{
-    ctx.beginPath(); ctx.arc(p.x,p.y,4,0,Math.PI*2);
-    ctx.fillStyle='#1a56e8'; ctx.fill();
-    ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2);
-    ctx.fillStyle='#fff'; ctx.fill();
+    ctx.beginPath(); ctx.arc(p.x,p.y,4,0,Math.PI*2); ctx.fillStyle='#1a56e8'; ctx.fill();
+    ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fillStyle='#fff'; ctx.fill();
   });
-
-  // Labels
   ctx.fillStyle='#9ca3af'; ctx.font='9px DM Sans'; ctx.textAlign='center';
-  labels.forEach((l,i)=> ctx.fillText(l,pts[i].x,H-6));
+  labels.forEach((l,i)=>ctx.fillText(l,pts[i].x,H-6));
 }
 
 /* ============================================================
-   HOME KEYS PREVIEW
+   HOME KEYS
    ============================================================ */
 function renderHomeKeys(){
   const el = document.getElementById('home-keys-list');
@@ -831,13 +1239,9 @@ function getTypeLabel(k){
    ============================================================ */
 function renderKeysList(keys){
   const el = document.getElementById('keys-list');
-  if(!keys.length){
-    el.innerHTML='<div class="empty"><div class="empty-icon">🔑</div><div class="empty-text">Nenhuma key encontrada</div></div>';
-    return;
-  }
+  if(!keys.length){ el.innerHTML='<div class="empty"><div class="empty-icon">🔑</div><div class="empty-text">Nenhuma key encontrada</div></div>'; return; }
   el.innerHTML = keys.map(k=>{
-    const isUsed = k.used;
-    const badge = isUsed ? 'active">Ativa' : 'pending">Pendente';
+    const badge = k.used ? 'active">Ativa' : 'pending">Pendente';
     const isRed = k.key.toUpperCase().includes('-VH');
     const sel = selectedIds.has(k.id);
     return `<div class="list-item${sel?' selected':''}" onclick="toggleSelect('${k.id}',this)">
@@ -847,7 +1251,7 @@ function renderKeysList(keys){
         <div class="item-meta">${getTypeLabel(k)} ${k.device?'· 📱 em uso':''}</div>
       </div>
       <span class="badge ${badge}</span>
-      <button class="copy-btn" onclick="copyText('${k.key}');event.stopPropagation();" title="Copiar">
+      <button class="copy-btn" onclick="copyText('${k.key}');event.stopPropagation();">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
       </button>
     </div>`;
@@ -856,10 +1260,7 @@ function renderKeysList(keys){
 
 function filterKeys(val){
   const v = val.toLowerCase();
-  const filtered = getMergedKeys().filter(k=>
-    k.key.toLowerCase().includes(v)||k.type.toLowerCase().includes(v)
-  );
-  renderKeysList(filtered);
+  renderKeysList(getMergedKeys().filter(k=>k.key.toLowerCase().includes(v)||k.type.toLowerCase().includes(v)));
 }
 
 function toggleSelect(id, row){
@@ -868,18 +1269,21 @@ function toggleSelect(id, row){
   else{ selectedIds.add(id); chk?.classList.add('checked'); row.classList.add('selected'); }
 }
 
-function deleteSelected(){
+async function deleteSelected(){
   if(!selectedIds.size){ showToast('⚠️ Selecione keys primeiro'); return; }
   const n = selectedIds.size;
-  generatedKeys = generatedKeys.filter(k=>!selectedIds.has(k.id));
-  apiKeys = apiKeys.filter(k=>!selectedIds.has(k.id));
-  save(STORAGE_KEYS.keys, generatedKeys);
-  save(STORAGE_KEYS.apiKeys, apiKeys);
+  showToast(`⏳ Excluindo ${n} key(s)...`);
+  const toDelete = getMergedKeys().filter(k => selectedIds.has(k.id));
+  selectedIds.forEach(id => deletedIds.add(id));
+  save(STORAGE_KEYS.deleted, [...deletedIds]);
+  generatedKeys = generatedKeys.filter(k => !deletedIds.has(k.id));
+  apiKeys = apiKeys.filter(k => !deletedIds.has(k.id));
+  save(STORAGE_KEYS.keys, generatedKeys); save(STORAGE_KEYS.apiKeys, apiKeys);
   selectedIds.clear();
-  renderKeysList(getMergedKeys());
-  renderStats();
-  renderHomeKeys();
-  showToast(`🗑️ ${n} key(s) removida(s)`);
+  renderKeysList(getMergedKeys()); renderStats(); renderHomeKeys();
+  let apiDeletedCount = 0;
+  for(const k of toDelete){ const ok = await deleteKeyFromApi(k.id, k.key); if(ok) apiDeletedCount++; }
+  showToast(`🗑️ ${n} key(s) removida(s)${apiDeletedCount>0?` (${apiDeletedCount} da API)`:''}`);
 }
 
 /* ============================================================
@@ -887,34 +1291,83 @@ function deleteSelected(){
    ============================================================ */
 function renderDevicesList(keys){
   const el = document.getElementById('devices-list');
-  const usedKeys = keys.filter(k=>k.used && k.device);
-  if(!usedKeys.length){
-    el.innerHTML='<div class="empty"><div class="empty-icon">📱</div><div class="empty-text">Nenhum device conectado</div></div>';
-    return;
-  }
-  el.innerHTML = usedKeys.map(k=>{
-    const activatedAt = k.activatedAt ? new Date(k.activatedAt*1000).toLocaleString('pt-BR') : '–';
-    const expiresAt = k.expiresAt && k.expiresAt > 0 ? new Date(k.expiresAt*1000).toLocaleString('pt-BR') : '–';
-    const isExpired = k.expiresAt > 0 && k.expiresAt < Date.now()/1000;
-    return `<div class="list-item">
-      <div class="item-check"></div>
-      <div class="item-body">
-        <div class="item-key" style="font-size:12px;">${k.device || '(device desconhecido)'}</div>
-        <div class="item-meta" style="font-size:11px;">${k.key}</div>
-        <div class="item-meta" style="font-size:10.5px;">Ativado: ${activatedAt}</div>
-        ${expiresAt!=='–'?`<div class="item-meta" style="font-size:10.5px;">Expira: ${expiresAt}</div>`:''}
+  const usedKeys = keys.filter(k => k.used && k.device);
+  if(!usedKeys.length){ el.innerHTML='<div class="empty"><div class="empty-icon">📱</div><div class="empty-text">Nenhum device conectado</div></div>'; return; }
+  const grouped = {};
+  usedKeys.forEach(k => { const dev = k.device||'(desconhecido)'; if(!grouped[dev]) grouped[dev]=[]; grouped[dev].push(k); });
+  el.innerHTML = Object.entries(grouped).map(([dev, devKeys]) => {
+    const firstKey = devKeys[0];
+    const isExpired = firstKey.expiresAt > 0 && firstKey.expiresAt < Date.now()/1000;
+    const activatedAt = firstKey.activatedAt ? new Date(firstKey.activatedAt*1000).toLocaleString('pt-BR') : '–';
+    const keysSubHtml = devKeys.map(k => {
+      const exp = k.expiresAt > 0 && k.expiresAt < Date.now()/1000;
+      return `<div class="device-key-sub-row">
+        <div class="device-key-sub-text">${k.key}</div>
+        <span class="badge" style="flex-shrink:0;${exp?'background:#fee2e2;color:#991b1b':'background:#dcfce7;color:#15803d'}">${exp?'Expirada':'Ativa'}</span>
+        <button class="copy-btn" style="width:24px;height:24px;margin-left:6px;" onclick="copyText('${k.key}');event.stopPropagation();">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>`;
+    }).join('');
+    return `<div class="device-item">
+      <div class="device-item-header">
+        <button class="device-action-btn" onclick="openDeviceActionModal('${firstKey.id}', event)">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5"><circle cx="12" cy="5" r="1.5" fill="#6366f1"/><circle cx="12" cy="12" r="1.5" fill="#6366f1"/><circle cx="12" cy="19" r="1.5" fill="#6366f1"/></svg>
+        </button>
+        <div class="item-body">
+          <div class="item-key" style="font-size:13px;">📱 ${dev}</div>
+          <div class="item-meta" style="font-size:11px;">Ativado: ${activatedAt} · ${devKeys.length} key(s)</div>
+        </div>
+        <span class="badge" style="${isExpired?'background:#fee2e2;color:#991b1b':'background:#dcfce7;color:#15803d'}">${isExpired?'Expirado':'Online'}</span>
       </div>
-      <span class="badge ${isExpired?'expired">Expirada':'active">Ativa'}</span>
+      <div class="device-keys-sub">
+        <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">Keys vinculadas</div>
+        ${keysSubHtml}
+      </div>
     </div>`;
   }).join('');
 }
 
 function filterDevices(val){
   const v = val.toLowerCase();
-  const filtered = getMergedKeys().filter(k=>
-    k.device?.toLowerCase().includes(v)||k.key.toLowerCase().includes(v)
-  );
-  renderDevicesList(filtered);
+  renderDevicesList(getMergedKeys().filter(k=>k.device?.toLowerCase().includes(v)||k.key.toLowerCase().includes(v)));
+}
+
+/* ============================================================
+   DEVICE ACTION MODAL
+   ============================================================ */
+function openDeviceActionModal(keyId, event){
+  event.stopPropagation();
+  const k = getMergedKeys().find(k => k.id === keyId);
+  if(!k) return;
+  activeDeviceKey = k;
+  document.getElementById('da-key-text').textContent = k.key;
+  document.getElementById('da-dev-text').textContent = '📱 ' + (k.device || 'Device desconhecido');
+  openModal('device-action-modal');
+}
+
+async function doDeviceAction(action){
+  if(!activeDeviceKey) return;
+  const k = activeDeviceKey;
+  closeModal('device-action-modal');
+  if(action === 'reset'){
+    showToast('⏳ Resetando device...');
+    const upd = a => a.map(i => i.id===k.id ? {...i,used:false,device:'',activatedAt:0,expiresAt:0} : i);
+    generatedKeys = upd(generatedKeys); apiKeys = upd(apiKeys);
+    save(STORAGE_KEYS.keys, generatedKeys); save(STORAGE_KEYS.apiKeys, apiKeys);
+    try{ await fetch(`https://teste-api-mcok.vercel.app/keys/${k.id}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({used:false,device:'',activatedAt:0,expiresAt:0}),signal:AbortSignal.timeout(6000)}); }catch(e){}
+    renderDevicesList(getMergedKeys()); renderStats(); renderHomeKeys();
+    showToast('✅ Device resetado! Key disponível.');
+  } else if(action === 'revoke'){
+    showToast('⏳ Revogando device...');
+    deletedIds.add(k.id); save(STORAGE_KEYS.deleted, [...deletedIds]);
+    generatedKeys = generatedKeys.filter(i=>i.id!==k.id); apiKeys = apiKeys.filter(i=>i.id!==k.id);
+    save(STORAGE_KEYS.keys, generatedKeys); save(STORAGE_KEYS.apiKeys, apiKeys);
+    await deleteKeyFromApi(k.id, k.key);
+    renderDevicesList(getMergedKeys()); renderStats(); renderHomeKeys();
+    showToast('🚫 Device revogado e key excluída.');
+  }
+  activeDeviceKey = null;
 }
 
 /* ============================================================
@@ -922,15 +1375,10 @@ function filterDevices(val){
    ============================================================ */
 function renderPackages(){
   const el = document.getElementById('packages-list');
-  if(!packages.length){
-    el.innerHTML='<div class="empty"><div class="empty-icon">📦</div><div class="empty-text">Nenhum package ainda<br><small style="font-size:12px;color:#9ca3af">Clique em + para adicionar</small></div></div>';
-    return;
-  }
+  if(!packages.length){ el.innerHTML='<div class="empty"><div class="empty-icon">📦</div><div class="empty-text">Nenhum package ainda</div></div>'; return; }
   el.innerHTML = packages.map((p,i)=>`
-    <div class="pkg-item" id="pkg-${p.id}">
-      <div class="pkg-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-      </div>
+    <div class="pkg-item">
+      <div class="pkg-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a56e8" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
       <div class="pkg-body">
         <div class="pkg-name">${p.name}</div>
         <div class="pkg-url">${p.url}</div>
@@ -947,20 +1395,8 @@ function renderPackages(){
   `).join('');
 }
 
-function togglePkg(i){
-  packages[i].enabled = !packages[i].enabled;
-  save(STORAGE_KEYS.packages, packages);
-  renderPackages();
-  updatePkgSelect();
-}
-
-function deletePkg(i){
-  packages.splice(i,1);
-  save(STORAGE_KEYS.packages, packages);
-  renderPackages();
-  updatePkgSelect();
-  showToast('Package removido');
-}
+function togglePkg(i){ packages[i].enabled=!packages[i].enabled; save(STORAGE_KEYS.packages,packages); renderPackages(); updatePkgSelect(); }
+function deletePkg(i){ const n=packages[i].name; packages.splice(i,1); save(STORAGE_KEYS.packages,packages); renderPackages(); updatePkgSelect(); showToast(`📦 Package "${n}" removido`); }
 
 function openPkgModal(){
   document.getElementById('pkg-name').value='';
@@ -970,293 +1406,155 @@ function openPkgModal(){
 }
 
 function addPackage(){
-  const name = document.getElementById('pkg-name').value.trim();
-  const url = document.getElementById('pkg-url').value.trim();
-  const desc = document.getElementById('pkg-desc').value.trim();
+  const name=document.getElementById('pkg-name').value.trim();
+  const url=document.getElementById('pkg-url').value.trim();
+  const desc=document.getElementById('pkg-desc').value.trim();
   if(!name){ showToast('⚠️ Informe o nome'); return; }
-  if(!url || !url.startsWith('http')){ showToast('⚠️ URL inválida'); return; }
-  packages.push({ id: Date.now().toString(), name, url, desc, enabled:true, sent:0 });
-  save(STORAGE_KEYS.packages, packages);
-  renderPackages();
-  updatePkgSelect();
-  closeModal('pkg-modal');
-  showToast(`📦 Package "${name}" adicionado!`);
+  if(!url||!url.startsWith('http')){ showToast('⚠️ URL inválida'); return; }
+  packages.push({id:'pkg-'+Date.now(),name,url,desc,enabled:true,sent:0});
+  save(STORAGE_KEYS.packages,packages); renderPackages(); updatePkgSelect();
+  closeModal('pkg-modal'); showToast(`📦 Package "${name}" adicionado!`);
 }
 
 function updatePkgSelect(){
-  const sel = document.getElementById('key-package');
-  if(!sel) return;
-  const cur = sel.value;
-  sel.innerHTML = '<option value="">— Selecionar package —</option>' +
-    packages.filter(p=>p.enabled).map(p=>`<option value="${p.id}">${p.name} — ${p.url.replace('https://','')}</option>`).join('');
-  if(cur) sel.value = cur;
-  updatePkgHint();
+  const sel=document.getElementById('key-package'); if(!sel) return;
+  const cur=sel.value;
+  sel.innerHTML='<option value="">— Selecionar package —</option>'+packages.filter(p=>p.enabled).map(p=>`<option value="${p.id}">${p.name} — ${p.url.replace('https://','')}</option>`).join('');
+  if(cur) sel.value=cur; updatePkgHint();
 }
 
 function updatePkgHint(){
-  const sel = document.getElementById('key-package');
-  const hint = document.getElementById('pkg-url-hint');
-  if(!sel||!hint) return;
-  const p = packages.find(p=>p.id===sel.value);
-  hint.textContent = p ? `📡 ${p.url}` : '';
+  const sel=document.getElementById('key-package'); const hint=document.getElementById('pkg-url-hint'); if(!sel||!hint) return;
+  const p=packages.find(p=>p.id===sel.value); hint.textContent=p?`📡 ${p.url}`:'';
 }
 
 /* ============================================================
-   CREATE KEY MODAL
+   CREATE KEY
    ============================================================ */
 function openCreateModal(){
   document.getElementById('generated-results').style.display='none';
   document.getElementById('generated-keys-list').innerHTML='';
   document.getElementById('create-btn-main').disabled=false;
   document.getElementById('create-btn-main').textContent='✦ Gerar Keys';
-  updatePkgSelect();
-  updatePreview();
-  const avail = KEY_LIMIT - limitCount;
-  openModal('create-modal');
+  updatePkgSelect(); updatePreview(); openModal('create-modal');
 }
 
 function updatePreview(){
-  const type = document.getElementById('key-type')?.value || 'weekly';
-  document.getElementById('key-preview').textContent = `GHOST-${type}-${'X'.repeat(10)}${Math.floor(Math.random()*99999)}`;
+  const type=document.getElementById('key-type')?.value||'weekly';
+  document.getElementById('key-preview').textContent=`GHOST-${type}-${'X'.repeat(10)}${Math.floor(Math.random()*99999)}`;
   updatePkgHint();
 }
 
 function generateKeyString(type){
-  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let rand='';
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let rand='';
   for(let i=0;i<8;i++) rand+=chars[Math.floor(Math.random()*chars.length)];
-  const num = Math.floor(Math.random()*99999).toString().padStart(5,'0');
-  return `GHOST-${type}-${rand}${num}`;
+  return `GHOST-${type}-${rand}${Math.floor(Math.random()*99999).toString().padStart(5,'0')}`;
 }
 
-async function sendKeyToApi(pkgUrl, keyData){
-  try{
-    const res = await fetch(pkgUrl, {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify(keyData),
-      signal: AbortSignal.timeout(8000)
-    });
-    return res.ok;
-  }catch(e){
-    console.warn('API POST failed:', e.message);
-    return false; // Still save locally even if API fails
-  }
+async function sendKeyToApi(pkgUrl,keyData){
+  try{ const res=await fetch(pkgUrl,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(keyData),signal:AbortSignal.timeout(8000)}); return res.ok; }catch(e){ return false; }
 }
 
 async function createKeys(){
-  const qty = Math.min(parseInt(document.getElementById('key-qty').value)||1, 100);
-  const type = document.getElementById('key-type').value;
-  const dur = parseInt(document.getElementById('key-duration').value)||1;
-  const pkgId = document.getElementById('key-package').value;
-
+  const qty=Math.min(parseInt(document.getElementById('key-qty').value)||1,100);
+  const type=document.getElementById('key-type').value;
+  const dur=parseInt(document.getElementById('key-duration').value)||1;
+  const pkgId=document.getElementById('key-package').value;
   if(!pkgId){ showToast('⚠️ Selecione um Package!'); return; }
-  if(limitCount >= KEY_LIMIT){ showToast('❌ Limite de 5.000 keys atingido!'); return; }
-
-  const realQty = Math.min(qty, KEY_LIMIT - limitCount);
-  if(realQty <= 0){ showToast('❌ Limite de keys atingido!'); return; }
-
-  const pkg = packages.find(p=>p.id===pkgId);
-  if(!pkg){ showToast('⚠️ Package não encontrado'); return; }
-
-  const btn = document.getElementById('create-btn-main');
-  btn.disabled = true;
-  btn.textContent = '⏳ Gerando e enviando...';
-
-  const today = new Date().toISOString().slice(0,10);
-  const newKeys = [];
-  const sentOk = [];
-
+  if(limitCount>=KEY_LIMIT){ showToast('❌ Limite atingido!'); return; }
+  const realQty=Math.min(qty,KEY_LIMIT-limitCount); if(realQty<=0){ showToast('❌ Limite atingido!'); return; }
+  const pkg=packages.find(p=>p.id===pkgId); if(!pkg){ showToast('⚠️ Package não encontrado'); return; }
+  const btn=document.getElementById('create-btn-main'); btn.disabled=true; btn.textContent='⏳ Gerando...';
+  const today=new Date().toISOString().slice(0,10);
+  const newKeys=[]; const sentOk=[];
   for(let i=0;i<realQty;i++){
-    const key = generateKeyString(type);
-    const keyObj = {
-      id: 'local-'+ Date.now()+'-'+i,
-      key, type, expire: dur,
-      used: false, device:'', createdAt: Math.floor(Date.now()/1000),
-      activatedAt:0, expiresAt:0,
-      _pkg: pkg.name, _pkgId: pkgId
-    };
-    newKeys.push(keyObj);
-
-    // Send to package API
-    const ok = await sendKeyToApi(pkg.url, keyObj);
-    sentOk.push(ok);
+    const key=generateKeyString(type);
+    const keyObj={id:'local-'+Date.now()+'-'+i,key,type,expire:dur,used:false,device:'',createdAt:Math.floor(Date.now()/1000),activatedAt:0,expiresAt:0,_pkg:pkg.name,_pkgId:pkgId};
+    newKeys.push(keyObj); sentOk.push(await sendKeyToApi(pkg.url,keyObj));
   }
-
-  // Save locally
-  generatedKeys.unshift(...newKeys);
-  save(STORAGE_KEYS.keys, generatedKeys);
-
-  // Update limit
-  updateLimit(realQty);
-
-  // Update chart
-  chartData[today] = (chartData[today]||0) + realQty;
-  save(STORAGE_KEYS.chartData, chartData);
-
-  // Update package sent count
-  const pkgIdx = packages.findIndex(p=>p.id===pkgId);
-  if(pkgIdx>=0){ packages[pkgIdx].sent = (packages[pkgIdx].sent||0) + realQty; }
-  save(STORAGE_KEYS.packages, packages);
-
-  // Show results
-  const resultsEl = document.getElementById('generated-results');
-  const listEl = document.getElementById('generated-keys-list');
-  const okCount = sentOk.filter(Boolean).length;
-
-  resultsEl.style.display='block';
-  listEl.innerHTML = newKeys.map(k=>`
+  generatedKeys.unshift(...newKeys); save(STORAGE_KEYS.keys,generatedKeys);
+  updateLimit(realQty); chartData[today]=(chartData[today]||0)+realQty; save(STORAGE_KEYS.chartData,chartData);
+  const pkgIdx=packages.findIndex(p=>p.id===pkgId); if(pkgIdx>=0) packages[pkgIdx].sent=(packages[pkgIdx].sent||0)+realQty;
+  save(STORAGE_KEYS.packages,packages);
+  document.getElementById('generated-results').style.display='block';
+  document.getElementById('generated-keys-list').innerHTML=newKeys.map(k=>`
     <div class="result-key-item">
       <div class="result-key-text">${k.key}</div>
       <button class="result-copy-btn" onclick="copyText('${k.key}')">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
       </button>
-    </div>
-  `).join('');
-
-  btn.disabled = false;
-  btn.textContent = `✦ Gerar Mais`;
-
-  renderStats();
-  renderHomeKeys();
-  renderChart();
+    </div>`).join('');
+  btn.disabled=false; btn.textContent='✦ Gerar Mais';
+  renderStats(); renderHomeKeys(); renderChart();
   if(document.getElementById('page-keys').classList.contains('active')) renderKeysList(getMergedKeys());
-
-  const apiMsg = okCount === realQty ? `📡 Enviadas para ${pkg.name}!` :
-    okCount > 0 ? `⚠️ ${okCount}/${realQty} enviadas para ${pkg.name}` :
-    `💾 Salvas localmente (API indisponível)`;
-
-  showToast(`✅ ${realQty} key(s) gerada(s)! ${apiMsg}`);
+  const okCount=sentOk.filter(Boolean).length;
+  showToast(`✅ ${realQty} key(s)! ${okCount===realQty?'📡 Enviadas!':okCount>0?`⚠️ ${okCount}/${realQty}`:'💾 Local'}`);
 }
 
-let _generatedCopyCache = [];
 function copyAllGenerated(){
-  const items = document.querySelectorAll('.result-key-text');
-  const text = Array.from(items).map(el=>el.textContent).join('\n');
-  copyText(text, `${items.length} keys copiadas!`);
+  const items=document.querySelectorAll('.result-key-text');
+  copyText(Array.from(items).map(el=>el.textContent).join('\n'),`${items.length} keys copiadas!`);
 }
 
 /* ============================================================
-   PROFILE
+   RESET & COPY ALL PENDING
    ============================================================ */
-function renderProfile(){
-  const all = getMergedKeys();
-  document.getElementById('prof-total').textContent = all.length;
-  document.getElementById('prof-used').textContent = all.filter(k=>k.used).length;
-  document.getElementById('prof-pkgs').textContent = packages.length;
-  document.getElementById('prof-limit').textContent = `${limitCount.toLocaleString('pt-BR')} / 5.000`;
-}
-
 function resetAllKeys(){
-  if(!confirm('Tem certeza? Isso vai limpar TODAS as keys salvas localmente!')) return;
-  generatedKeys = []; apiKeys = []; limitCount = 0; chartData = {};
-  save(STORAGE_KEYS.keys, []); save(STORAGE_KEYS.apiKeys, []);
-  save(STORAGE_KEYS.limit, 0); save(STORAGE_KEYS.chartData, {});
-  updateLimit(0); renderStats(); renderHomeKeys(); renderChart(); renderProfile();
+  if(!confirm('Limpar TODAS as keys?')) return;
+  generatedKeys=[]; apiKeys=[]; limitCount=0; chartData={}; deletedIds=new Set();
+  save(STORAGE_KEYS.keys,[]); save(STORAGE_KEYS.apiKeys,[]);
+  save(STORAGE_KEYS.limit,0); save(STORAGE_KEYS.chartData,{}); save(STORAGE_KEYS.deleted,[]);
+  updateLimit(0); renderStats(); renderHomeKeys(); renderChart();
   showToast('🗑️ Todas as keys limpas');
 }
 
 function copyAllPending(){
-  const pending = getMergedKeys().filter(k=>!k.used).map(k=>k.key);
+  const pending=getMergedKeys().filter(k=>!k.used).map(k=>k.key);
   if(!pending.length){ showToast('Nenhuma key pendente'); return; }
-  copyText(pending.join('\n'), `${pending.length} keys pendentes copiadas!`);
+  copyText(pending.join('\n'),`${pending.length} keys copiadas!`);
 }
 
 /* ============================================================
-   INTEGRATION MODAL
+   INTEGRATION
    ============================================================ */
 function showIntegration(){
-  const apiUrl = packages[0]?.url || 'https://teste-api-mcok.vercel.app/keys';
-  document.getElementById('integration-js').textContent =
-`// Verificar key (JavaScript / Fetch)
-const API = "${apiUrl}";
-
-async function verificarKey(key) {
-  const res = await fetch(API);
-  const keys = await res.json();
-  const found = keys.find(k => k.key === key);
-  if (!found) return { valid: false, reason: "Key não encontrada" };
-  if (found.used) return { valid: false, reason: "Key já usada" };
-  return { valid: true, data: found };
-}`;
-
-  document.getElementById('integration-luau').textContent =
-`-- Verificar key (Luau / Roblox)
-local API = "${apiUrl}"
-local HttpService = game:GetService("HttpService")
-
-local function verificarKey(key: string)
-  local ok, res = pcall(function()
-    return HttpService:GetAsync(API)
-  end)
-  if not ok then return false end
-  local data = HttpService:JSONDecode(res)
-  for _, item in ipairs(data) do
-    if item.key == key and not item.used then
-      return true
-    end
-  end
-  return false
-end`;
-
+  const apiUrl=packages[0]?.url||'https://teste-api-mcok.vercel.app/keys';
+  document.getElementById('integration-js').textContent=`// Verificar key (JavaScript / Fetch)\nconst API = "${apiUrl}";\n\nasync function verificarKey(key) {\n  const res = await fetch(API);\n  const keys = await res.json();\n  const found = keys.find(k => k.key === key);\n  if (!found) return { valid: false, reason: "Key não encontrada" };\n  if (found.used) return { valid: false, reason: "Key já usada" };\n  return { valid: true, data: found };\n}`;
+  document.getElementById('integration-luau').textContent=`-- Verificar key (Luau / Roblox)\nlocal API = "${apiUrl}"\nlocal HttpService = game:GetService("HttpService")\n\nlocal function verificarKey(key: string)\n  local ok, res = pcall(function()\n    return HttpService:GetAsync(API)\n  end)\n  if not ok then return false end\n  local data = HttpService:JSONDecode(res)\n  for _, item in ipairs(data) do\n    if item.key == key and not item.used then\n      return true\n    end\n  end\n  return false\nend`;
   openModal('integration-modal');
 }
 
-function copyIntegration(type){
-  const el = document.getElementById('integration-'+type);
-  copyText(el.textContent, 'Código copiado!');
-}
+function copyIntegration(type){ copyText(document.getElementById('integration-'+type).textContent,'Código copiado!'); }
 
 /* ============================================================
    UTILS
    ============================================================ */
 function openModal(id){ document.getElementById(id).classList.add('open'); }
 function closeModal(id){ document.getElementById(id).classList.remove('open'); }
-function closeOnBg(e, id){ if(e.target.id===id) closeModal(id); }
+function closeOnBg(e,id){ if(e.target.id===id) closeModal(id); }
 
 function toggleSearch(page){
-  const el = document.getElementById('search-'+page);
-  if(el.style.display==='none'||!el.style.display){
-    el.style.display='block';
-    el.querySelector('input').focus();
-  } else {
-    el.style.display='none';
-    el.querySelector('input').value='';
-    if(page==='keys') renderKeysList(getMergedKeys());
-    if(page==='devices') renderDevicesList(getMergedKeys());
-  }
+  const el=document.getElementById('search-'+page);
+  if(el.style.display==='none'||!el.style.display){ el.style.display='block'; el.querySelector('input').focus(); }
+  else{ el.style.display='none'; el.querySelector('input').value=''; if(page==='keys') renderKeysList(getMergedKeys()); if(page==='devices') renderDevicesList(getMergedKeys()); }
 }
 
-async function copyText(text, msg='Copiado!'){
-  try{
-    await navigator.clipboard.writeText(text);
-    showToast('📋 '+msg);
-  }catch(e){
-    const ta=document.createElement('textarea');
-    ta.value=text; document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); document.body.removeChild(ta);
-    showToast('📋 '+msg);
-  }
+async function copyText(text,msg='Copiado!'){
+  try{ await navigator.clipboard.writeText(text); showToast('📋 '+msg); }
+  catch(e){ const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('📋 '+msg); }
 }
 
 function showToast(msg){
   document.querySelectorAll('.toast').forEach(t=>t.remove());
-  const t=document.createElement('div');
-  t.className='toast'; t.textContent=msg;
-  document.querySelector('.phone').appendChild(t);
-  setTimeout(()=>t.remove(), 3400);
+  const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
+  document.querySelector('.phone').appendChild(t); setTimeout(()=>t.remove(),3400);
 }
 
 async function refreshAll(){
   showToast('🔄 Atualizando...');
-  await fetchRemoteKeys();
-  renderStats();
-  renderHomeKeys();
-  renderChart();
-  const kPage = document.getElementById('page-keys');
-  if(kPage.classList.contains('active')) renderKeysList(getMergedKeys());
-  const dPage = document.getElementById('page-devices');
-  if(dPage.classList.contains('active')) renderDevicesList(getMergedKeys());
+  await fetchRemoteKeys(); renderStats(); renderHomeKeys(); renderChart();
+  if(document.getElementById('page-keys').classList.contains('active')) renderKeysList(getMergedKeys());
+  if(document.getElementById('page-devices').classList.contains('active')) renderDevicesList(getMergedKeys());
   showToast('✅ Dados atualizados!');
 }
 
@@ -1264,17 +1562,12 @@ async function refreshAll(){
    INIT
    ============================================================ */
 async function init(){
-  updateLimit(0); // restore from storage, just re-render
-  updatePkgSelect();
-  renderStats();
-  renderHomeKeys();
-  renderChart();
-  await fetchRemoteKeys();
-  renderStats();
-  renderHomeKeys();
+  applyLanguage(currentLang);
+  updateLimit(0); updatePkgSelect(); renderStats(); renderHomeKeys(); renderChart();
+  await fetchRemoteKeys(); renderStats(); renderHomeKeys();
 }
 
-window.addEventListener('resize', ()=>{ if(document.getElementById('mainChart')) renderChart(); });
+window.addEventListener('resize',()=>{ if(document.getElementById('mainChart')) renderChart(); });
 init();
 </script>
 </body>
