@@ -400,7 +400,7 @@ canvas{width:100%!important;display:block;}
 <div class="page" id="page-profile">
   <div class="profile-header">
     <div class="profile-avatar">F</div>
-    <div class="profile-name">FERRAO IOS</div>
+    <div class="profile-name">GHOST CHEATS</div>
     <div class="profile-plan">✦ Plano Pro • Ativo</div>
   </div>
   <div class="profile-body">
@@ -535,7 +535,7 @@ canvas{width:100%!important;display:block;}
     </div>
 
     <div class="preview-label">Preview da key</div>
-    <div class="preview-box" id="key-preview">FERRAO-weekly-xxxxxxxxxxxxxxxxxx</div>
+    <div class="preview-box" id="key-preview">GHOST-weekly-xxxxxxxxxxxxxxxxxx</div>
 
     <div id="generated-results" style="display:none">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
@@ -1012,14 +1012,12 @@ function openCreateModal(){
   updatePkgSelect();
   updatePreview();
   const avail = KEY_LIMIT - limitCount;
-  document.getElementById('remaining-hint').textContent = `Disponível: ${avail.toLocaleString('pt-BR')} de 5.000`;
-  document.getElementById('remaining-hint').className = 'form-hint' + (avail<100?' warn':'');
   openModal('create-modal');
 }
 
 function updatePreview(){
   const type = document.getElementById('key-type')?.value || 'weekly';
-  document.getElementById('key-preview').textContent = `FERRAO-${type}-${'X'.repeat(10)}${Math.floor(Math.random()*99999)}`;
+  document.getElementById('key-preview').textContent = `GHOST-${type}-${'X'.repeat(10)}${Math.floor(Math.random()*99999)}`;
   updatePkgHint();
 }
 
@@ -1028,7 +1026,7 @@ function generateKeyString(type){
   let rand='';
   for(let i=0;i<8;i++) rand+=chars[Math.floor(Math.random()*chars.length)];
   const num = Math.floor(Math.random()*99999).toString().padStart(5,'0');
-  return `FERRAO-${type}-${rand}${num}`;
+  return `GHOST-${type}-${rand}${num}`;
 }
 
 async function sendKeyToApi(pkgUrl, keyData){
